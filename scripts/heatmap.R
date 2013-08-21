@@ -1,9 +1,9 @@
 
 require(reshape2)
 require(ggplot2)
-setwd('C:/etc/Projects/Data/_Ongoing/MovieTaglines')
+setwd('C:/etc/Projects/Data/_Complete/MovieTaglines')
 
-df<-read.csv('C:/Users/eeshanmalhotra/Desktop/words.csv',stringsAsFactors=F)
+df<-read.csv('out/topWordsMatrix.csv',stringsAsFactors=F,head=T)
 
 m<-as.matrix(df[,2:9])
 row.names(m)<-df[,1]
@@ -21,5 +21,4 @@ x1$Decade<-factor(x1$Decade, levels=unique(x1$Decade))
 
 p<-qplot(Decade, Words, fill=colour, data=x1, geom='tile')
 p
-p+scale_fill_manual(name = "This is my title", values = c("#EEEEEE", "#00BFC4"), labels = c("0" = "Foo", "1" = "Bar"))
-p+scale_fill_manual(name = "This is my title", values = c("#E5E5E5", "#F8766D"), labels = c("0" = "Foo", "1" = "Bar"))
+p+scale_fill_manual(name = "", values = c("#EEEEEE", "#00BFC4"))
